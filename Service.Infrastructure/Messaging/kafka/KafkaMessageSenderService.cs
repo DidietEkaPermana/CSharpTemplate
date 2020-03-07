@@ -5,7 +5,7 @@ using Service.Infrastructure.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace Service.Infrastructure.Messaging.kafka
+namespace Service.Infrastructure.Messaging.Kafka
 {
     public class KafkaMessageSenderService : IMessageSenderService, IDisposable
     {

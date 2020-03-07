@@ -5,7 +5,7 @@ using Service.Core.Services.Interfaces;
 using Service.Core.Services.MessagingEvent;
 using Service.Infrastructure.DB.UnitOfWork;
 using Service.Infrastructure.Interfaces;
-using Service.Infrastructure.Messaging.kafka;
+using Service.Infrastructure.Messaging.Kafka;
 using Service.Infrastructure.Messaging.Stan;
 using Service.Infrastructure.Middleware;
 using Service.Infrastructure.DB.Models;

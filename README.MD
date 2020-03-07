@@ -1,17 +1,18 @@
-# CSharp Template
+﻿# CSharp Template
 
 This is a project template for C#. With a sample of 2 models which is Hotels and Rooms, in which Hotels contain Rooms.
 
 ## Project Structure
-
-|--- API
+```
+.
+└── API
 	|
-	|--- Core (Business Process)
+	├── Core (Business Process)
 	|
-	|--- Domain (Models)
+	├── Domain (Models)
 	|
-	|--- Infrastructure (DB Connection, Messaging etc)
-
+	└── Infrastructure (DB Connection, Messaging etc)
+```
 ## API
 
 API will contain REST declaration of project, Security validation and logging declaration. 
@@ -34,18 +35,18 @@ In this template, we show how to implement several technologies that we can impl
 If you don't use, feel free to remove it.
 There are 3 main section:
 
-### DB (Database Section)
+### 1. DB (Database Section)
 
 Where you declare your Context, UnitOfWork and Repositories.
 The Models attribute should be declare in your context, not in your Domain.
-In this sample we can use MongoDB, CosmosDB, SQLServer and ElasticSearch.
+In this sample we can use MongoDB (4.2.3), CosmosDB (Emulator), SQLServer (14.0.3038.14 (X64) Dev Edition on Linux) and ElasticSearch (7.6.0).
 
-### Messaging
+### 2. Messaging
 
-This is where you declare your messaging technology, in this template there are 2 technology sample that you can use, which is Kafka and NATS.
+This is where you declare your messaging technology, in this template there are 2 technology sample that you can use, which is Kafka (zookeeper:3.4.9 and confluentinc/cp-kafka:5.0.1) and NATS (nats-streaming:0.17.0).
 
-### Storage
+### 3. Storage
 
 This section is where do you want to upload your file to.
-For this template, you can upload to your file system or Azure Storage
+For this template, you can upload to your file system or Azure Storage (Emulator)
 

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Service.Infrastructure.Messaging.kafka
+namespace Service.Infrastructure.Messaging.Kafka
 {
     public class KafkaMessageReceiverService : IHostedService, IDisposable
     {
