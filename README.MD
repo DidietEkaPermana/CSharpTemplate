@@ -18,6 +18,7 @@ This is a project template for C#. With a sample of 2 models which is Hotels and
 API will contain REST declaration of project, Security validation and logging declaration. 
 In controller, you should extract user name for audit from security token.
 logging would be using serilog and in this sample will be consume in elasticsearch.
+API documentation will use swashbuckle.
 
 ## Core
 
@@ -50,3 +51,21 @@ This is where you declare your messaging technology, in this template there are 
 This section is where do you want to upload your file to.
 For this template, you can upload to your file system or Azure Storage (Emulator)
 
+## Tools used
+
+IDE: visual studio code or visual studio 2019 Community Edition
+SDK: .net core sdk 3.1
+DB: MongoDB (4.2.3), CosmosDB (Emulator), SQLServer (14.0.3038.14 (X64) Dev Edition on Linux) and ElasticSearch (7.6.0)
+Messaging: Kafka (zookeeper:3.4.9 and confluentinc/cp-kafka:5.0.1), NATS (nats-streaming:0.17.0).
+Storage: native filesystem or Azure Storage
+Container: Docker desktop
+
+## How to run
+
+Install your chosen IDE, load solution, and run it.
+Default application should run, without any infra running, but you can not test run it.
+Minimum elasticsearch should run, you can run elasticsearch by using docker to simplify things.
+
+## things to do
+
+Unit testing
