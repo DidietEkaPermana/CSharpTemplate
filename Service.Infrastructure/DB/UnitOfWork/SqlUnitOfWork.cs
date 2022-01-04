@@ -13,14 +13,14 @@ namespace Service.Infrastructure.DB.UnitOfWork
 
         public IPropertyRepository PropertyRepository { get; }
 
-        public SqlUnitOfWork(SqlDBContext context)
+        public SqlUnitOfWork(
+            SqlDBContext context,
+            IPropertyRepository propRepo
+            )
         {
             dbContext = context;
-            dbContext.Database.SetCommandTimeout(TimeSpan.FromMinutes(10));
 
-            dbContext.Database.EnsureCreated();
-
-            PropertyRepository = new PropertyRepository(dbContext);
+            PropertyRepository = propRepo;
         }
 
         public void Save()

@@ -1,11 +1,8 @@
-﻿using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Specialized;
-using Service.Infrastructure.Interfaces;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Extensions.Configuration;
+using Service.Infrastructure.Interfaces;
 
 namespace Service.Infrastructure.Storage
 {

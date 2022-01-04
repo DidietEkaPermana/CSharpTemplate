@@ -4,6 +4,7 @@ using Service.Core.Services.Implementation.Elastic;
 using Service.Core.Services.Interfaces;
 using Service.Core.Services.MessagingEvent;
 using Service.Infrastructure.DB.UnitOfWork;
+using Service.Infrastructure.DB.Repositories.Sql;
 using Service.Infrastructure.Interfaces;
 using Service.Infrastructure.Messaging.Kafka;
 using Service.Infrastructure.Messaging.Stan;
@@ -62,6 +63,8 @@ namespace Service.Core
                 x.EnableDetailedErrors();
                 x.EnableSensitiveDataLogging();
             });
+
+            services.AddScoped<IPropertyRepository, PropertyRepository>();
 
             services.AddScoped<IUnitOfWork, SqlUnitOfWork>();
         }

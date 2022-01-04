@@ -10,6 +10,9 @@ namespace Service.Infrastructure.DB.Context
     {
         public SqlDBContext(DbContextOptions<SqlDBContext> options) : base(options)
         {
+            this.Database.SetCommandTimeout(TimeSpan.FromMinutes(10));
+
+            this.Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
