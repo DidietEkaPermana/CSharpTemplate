@@ -51,8 +51,8 @@ namespace Service.WebApi
 
             //services.AddCosmosDbContext(Configuration);
             //services.AddMongoDbContext(Configuration);
-            //services.AddSqlDbContext(Configuration);
-            services.AddElasticDbContext();
+            services.AddSqlDbContext(Configuration);
+            // services.AddElasticDbContext();
 
             services.AddService(typeof(Startup));
 

@@ -53,11 +53,13 @@ namespace Service.Core
             configuration.GetSection(nameof(SqlDatabaseSettings)).Bind(_settings);
 
             services.AddDbContextPool<SqlDBContext>(x => {
-                x.UseSqlServer(
+                // x.UseSqlServer(
+                x.UseNpgsql(
                                 _settings.ServerUrl,
                                 y => {
                                     y.CommandTimeout(600);
-                                    y.EnableRetryOnFailure(maxRetryCount: 100, maxRetryDelay: TimeSpan.FromSeconds(5), errorNumbersToAdd: null);
+                                    // y.EnableRetryOnFailure(maxRetryCount: 100, maxRetryDelay: TimeSpan.FromSeconds(5), errorNumbersToAdd: null);
+                                    y.EnableRetryOnFailure(maxRetryCount: 100, maxRetryDelay: TimeSpan.FromSeconds(5), errorCodesToAdd: null);
                                 }
                                 );
                 x.EnableDetailedErrors();

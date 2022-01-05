@@ -7,13 +7,15 @@ namespace Service.Domain.Entities
     {
         public Guid PropertyId { get; set; }
         public Property Property { get; set; }
-        public string Name { get; set; }
-        public RoomType Type { get; set; }
+        public string RoomType { get; set; }
         public string Bed { get; set; }
         public ushort Guests { get; set; }
         public string Facilities { get; set; }
         public decimal Price { get; set; }
-        public Currency Currency { get; set; }
-        public ushort Capacity { get; set; }
+        public int Capacity { get; set; }
+        public int Available { get; set; }
+
+        // [Column("Image", TypeName = "string[]")]
+        public string[] Image { get; set; }
     }
 }

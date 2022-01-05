@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Service.Domain.Entities
 {
-    public class PropertyType : TypeBase
+    public enum PropertyType
     {
+        Hotels,
+        Villa,
+        Condominium,
+        Apartment
     }
 }

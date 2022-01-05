@@ -12,18 +12,21 @@ namespace Service.Infrastructure.DB.Context
         {
             this.Database.SetCommandTimeout(TimeSpan.FromMinutes(10));
 
-            this.Database.EnsureCreated();
+            // this.Database.EnsureCreated();
         }
+
+        public DbSet<Property> Properties { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Room>()
-                .Property(i => i.Id)
-                .ValueGeneratedNever();
+            // modelBuilder.Entity<Room>()
+            //     .Property(i => i.Id)
+            //     .ValueGeneratedNever();
 
-            modelBuilder.Entity<Room>()
-                .Property(i => i.Price)
-                .HasColumnType("money");
+            // modelBuilder.Entity<Room>()
+            //     .Property(i => i.Price)
+            //     .HasColumnType("money");
         }
     }
 }
