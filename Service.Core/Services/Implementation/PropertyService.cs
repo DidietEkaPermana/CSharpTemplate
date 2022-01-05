@@ -34,6 +34,7 @@ namespace Service.Core.Services.Implementation
         {
             try
             {
+                _logger.LogInformation("Get Hotel Service");
                 return _mapper.Map<List<PropertyOutput>>(_unitOfWork.PropertyRepository.GetByPage(10, 1));
             }
             catch (Exception e)

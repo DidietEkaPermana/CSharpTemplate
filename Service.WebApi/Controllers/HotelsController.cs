@@ -50,6 +50,9 @@ namespace Service.Web.Controllers
         {
             try
             {
+                _logger.LogTrace("Get Hotel Controller");
+                // _logger.LogDebug("Get Hotel Controller");
+                // _logger.LogInformation("Get Hotel Controller");
                 return Ok(_propertyService.Get());
             }
             catch (System.Exception e)

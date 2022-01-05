@@ -22,11 +22,20 @@ namespace Service.WebApi
             var elasticUri = Configuration["ElasticConfiguration:Uri"];
 
             Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
                 .Enrich.FromLogContext()
                 .Enrich.WithExceptionDetails()
                 .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elasticUri))
                 {
                     AutoRegisterTemplate = true,
+                    EmitEventFailure =
+                                        EmitEventFailureHandling.WriteToSelfLog |
+                                        EmitEventFailureHandling.RaiseCallback |
+                                        EmitEventFailureHandling.ThrowException,
+                    FailureCallback = e =>
+                    {
+                        Console.WriteLine("Unable to submit event " + e.MessageTemplate);
+                    }
                 })
             .CreateLogger();
         }
@@ -61,7 +70,8 @@ namespace Service.WebApi
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
                     Title = "My API",
                     Version = "v1",
                     Description = "A simple example ASP.NET Core Web API",
