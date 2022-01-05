@@ -1,6 +1,6 @@
 ﻿using Service.Domain.Base;
 using Service.Infrastructure.Interfaces;
-using Service.Infrastructure.DB.Models;
+using Service.Infrastructure.Models;
 using Service.Infrastructure.DB.Context;
 using MongoDB.Bson;
 using MongoDB.Driver;

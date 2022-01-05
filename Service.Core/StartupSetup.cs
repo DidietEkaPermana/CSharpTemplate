@@ -9,7 +9,7 @@ using Service.Infrastructure.Interfaces;
 using Service.Infrastructure.Messaging.Kafka;
 using Service.Infrastructure.Messaging.Stan;
 using Service.Infrastructure.Middleware;
-using Service.Infrastructure.DB.Models;
+using Service.Infrastructure.Models;
 using Service.Infrastructure.DB.Context;
 using Service.Infrastructure.Storage;
 using Microsoft.AspNetCore.Builder;

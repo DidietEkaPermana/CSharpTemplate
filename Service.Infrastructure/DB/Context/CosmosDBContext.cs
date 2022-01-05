@@ -1,10 +1,7 @@
 ﻿using Service.Domain.Entities;
 using Service.Infrastructure.Interfaces;
-using Service.Infrastructure.DB.Models;
+using Service.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Service.Infrastructure.DB.Context
 {

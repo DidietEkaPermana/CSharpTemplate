@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Service.Infrastructure.DB.Models
+namespace Service.Infrastructure.Models
 {
     public class CosmosDatabaseSettings : IDatabaseSettings
     {
