@@ -21,19 +21,7 @@ namespace Service.Infrastructure.Middleware
             var CorrelationID = Guid.NewGuid();
             using (_logger.BeginScope($"CorrelationID:{CorrelationID}"))
             {
-                // await _next(context);
-                try
-                {
-                    await _next(context);
-                }
-                finally
-                {
-                    _logger.LogInformation(
-                        "Request {method} {url} => {statusCode}",
-                        context.Request?.Method,
-                        context.Request?.Path.Value,
-                        context.Response?.StatusCode);
-                }
+                await _next(context);
             }
         }
     }
