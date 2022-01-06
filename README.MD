@@ -66,6 +66,17 @@ Install your chosen IDE, load solution, and run it.
 Default application should run, without any infra running, but you can not test run it.
 Minimum elasticsearch should run, you can run elasticsearch by using docker to simplify things.
 
+## Dockerize
+
+### create image
+1. use Dockerfile to build app: "docker build -t service_clean_arch ." using file Dockerfile image size 357.42 MB
+2. build manually and create image (image size 357.28 MB): 
+	a. dotnet publish -c Release -o publish
+	b. docker build -f DockerPublish -t service_clean_arch .
+
+### run image
+docker run -d --name service_clean_arch -p 80:80 service_clean_arch -e ElasticConfiguration:Uri=http://host.docker.internal:9200 -e SqlDatabaseSettings:ServerUrl="Host=host.docker.internal;Database=PropertyDB;Username=postgres;password=postgres;"
+
 ## things to do
 
 Unit testing
