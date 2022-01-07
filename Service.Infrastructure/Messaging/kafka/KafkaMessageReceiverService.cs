@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Service.Infrastructure.Messaging.Models;
+using Service.Infrastructure.Models;
 using Services.Infrastructure.Messaging.Interfaces;
 using System;
 using System.Collections.Generic;

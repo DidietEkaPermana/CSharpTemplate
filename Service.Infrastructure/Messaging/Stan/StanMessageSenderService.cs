@@ -25,7 +25,11 @@ namespace Service.Infrastructure.Messaging.Stan
 
             cOpts.NatsURL = _configuration.GetValue<string>("Messaging:Stan:Servers");
             string clusterID = _configuration.GetValue<string>("Messaging:Stan:ClusterId");
+            
+            //if testing for local loop send error, 'coz clientID already used when listen
             string clientID = _configuration.GetValue<string>("Messaging:Group");
+            // string clientID = "TEST"; 
+            
             _connection = new StanConnectionFactory().CreateConnection(clusterID, clientID, cOpts);
         }
 

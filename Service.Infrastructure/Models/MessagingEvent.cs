@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Service.Infrastructure.Messaging.Models
+namespace Service.Infrastructure.Models
 {
     public class MessagingEvent
     {

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Services.Infrastructure.Messaging.Interfaces;
 using System;
+using System.Text;
 
 namespace Service.Core.Services.MessagingEvent
 {

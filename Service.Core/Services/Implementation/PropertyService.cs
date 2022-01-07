@@ -4,9 +4,12 @@ using Service.Core.Services.Interfaces;
 using Service.Domain.Entities;
 using Service.Infrastructure.Interfaces;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace Service.Core.Services.Implementation
 {
@@ -16,18 +19,24 @@ namespace Service.Core.Services.Implementation
         private IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private IStorage _storage;
+        private readonly IMessageSenderService _messageSenderService;
+        private readonly IConfiguration _configuration;
 
         public PropertyService(
             ILogger<PropertyService> logger,
             IUnitOfWork unitOfWork,
             IMapper mapper,
-            IStorage storage
+            IStorage storage,
+            IMessageSenderService messageSenderService,
+            IConfiguration configuration
             )
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _storage = storage;
+            _messageSenderService = messageSenderService;
+            _configuration = configuration;
         }
 
         public IList<PropertyOutput> Get()
@@ -35,6 +44,27 @@ namespace Service.Core.Services.Implementation
             try
             {
                 _logger.LogInformation("Get Hotel Service");
+
+                // var notif = new ImageInput()
+                // {
+                //     uri = new List<string>(){"123", "345", "567"}
+                // };
+
+                // var str = JsonConvert.SerializeObject(notif);
+                // var body = Encoding.ASCII.GetBytes(str);
+                var body = "haloooo";
+
+                var topics = _configuration.GetValue<string>("Messaging:Topics:Ping");
+
+                try
+                {
+                    _messageSenderService.Send(topics, body);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "error send event: {0}", e.Message);
+                }
+
                 return _mapper.Map<List<PropertyOutput>>(_unitOfWork.PropertyRepository.GetByPage(10, 1));
             }
             catch (Exception e)

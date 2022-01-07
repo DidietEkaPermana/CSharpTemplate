@@ -19,7 +19,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using Service.Infrastructure.Messaging.Models;
 
 namespace Service.Core
 {
@@ -93,7 +92,7 @@ namespace Service.Core
             app.UseMiddleware<RequestLoggingMiddleware>();
         }
 
-        public static void AddMessagingService(this IServiceCollection services)
+        public static void AddMessagingService(this IServiceCollection services, IConfiguration configuration)
         {
             //services.AddTransient<IMessageSenderService, KafkaMessageSenderService>();
             //services.AddHostedService<KafkaMessageReceiverService>();
@@ -101,10 +100,12 @@ namespace Service.Core
             services.AddTransient<IMessageSenderService, StanMessageSenderService>();
             services.AddHostedService<StanMessageReceiverService>();
 
+            var topics = configuration.GetValue<string>("Messaging:Topics:Ping");
+
             //assign subscription by topic
             MessagingEvent messagingEvent = new MessagingEvent();
             messagingEvent.subscriptions = new Dictionary<string, Type> {
-                { "test", typeof(TestEvent) }
+                { topics, typeof(TestEvent) }
             };
 
             services.AddSingleton(messagingEvent);

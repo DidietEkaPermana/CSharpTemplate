@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Service.Infrastructure.Messaging.Models;
+using Service.Infrastructure.Models;
 using Services.Infrastructure.Messaging.Interfaces;
 using STAN.Client;
 using System;
@@ -48,7 +48,7 @@ namespace Service.Infrastructure.Messaging.Stan
             }
             catch (Exception ex)
             {
-                _logger.LogError("Error messaging connection", ex.Message);
+                _logger.LogError(ex, "Error messaging connection");
                 //throw ex;
             }
 
