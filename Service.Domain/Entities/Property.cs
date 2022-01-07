@@ -34,7 +34,8 @@ namespace Service.Domain.Entities
         public string CityLocationCode { get; set; }
 
         // [Column("Image", TypeName = "string[]")]
-        public string[] Image { get; set; }
+        // public string[] Image { get; set; }
+        public string Image { get; set; }
         public ICollection<Room> Rooms { get; set; }
     }
 }

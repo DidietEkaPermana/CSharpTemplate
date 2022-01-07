@@ -12,7 +12,7 @@ namespace Service.Infrastructure.DB.Context
         {
             this.Database.SetCommandTimeout(TimeSpan.FromMinutes(10));
 
-            // this.Database.EnsureCreated();
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Property> Properties { get; set; }

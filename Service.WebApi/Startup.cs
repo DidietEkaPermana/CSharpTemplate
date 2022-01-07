@@ -65,7 +65,7 @@ namespace Service.WebApi
 
             services.AddService(typeof(Startup));
 
-            //services.AddMessagingService();
+            //services.AddMessagingService(Configuration);
 
 
             services.AddSwaggerGen(c =>

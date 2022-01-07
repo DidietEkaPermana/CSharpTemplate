@@ -16,6 +16,7 @@ namespace Service.Domain.Entities
         public int Available { get; set; }
 
         // [Column("Image", TypeName = "string[]")]
-        public string[] Image { get; set; }
+        // public string[] Image { get; set; }
+        public string Image { get; set; }
     }
 }
